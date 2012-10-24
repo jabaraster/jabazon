@@ -22,7 +22,7 @@ public class Sandbox {
      * @param pArgs 起動引数.
      */
     public static void main(final String[] pArgs) throws Exception {
-        final String query = "すごいHaskell"; //$NON-NLS-1$
+        final String query = "Haskell"; //$NON-NLS-1$
         final GetMethod get = new GetMethod("https://www.googleapis.com/books/v1/volumes?q=" + URLEncoder.encode(query, "UTF-8")); //$NON-NLS-1$ //$NON-NLS-2$
         final HttpClient client = new HttpClient();
         final int status = client.executeMethod(get);
@@ -31,6 +31,8 @@ public class Sandbox {
         }
         System.out.println(status);
         final String json = get.getResponseBodyAsString();
+
+        System.out.println(json);
         final Volumes volume = JSON.decode(json, Volumes.class);
         System.out.println(volume);
     }

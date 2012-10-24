@@ -16,6 +16,7 @@ public class Item implements Serializable {
     private String            etag;
     private String            selfLink;
     private VolumeInfo        volumeInfo;
+    private SaleInfo          saleInfo;
 
     /**
      * @return the etag
@@ -36,6 +37,13 @@ public class Item implements Serializable {
      */
     public String getKind() {
         return this.kind;
+    }
+
+    /**
+     * @return the saleInfo
+     */
+    public SaleInfo getSaleInfo() {
+        return this.saleInfo;
     }
 
     /**
@@ -74,6 +82,13 @@ public class Item implements Serializable {
     }
 
     /**
+     * @param pSaleInfo the saleInfo to set
+     */
+    public void setSaleInfo(final SaleInfo pSaleInfo) {
+        this.saleInfo = pSaleInfo;
+    }
+
+    /**
      * @param pSelfLink the selfLink to set
      */
     public void setSelfLink(final String pSelfLink) {
@@ -93,7 +108,7 @@ public class Item implements Serializable {
     @SuppressWarnings("nls")
     @Override
     public String toString() {
-        return "Item [kind=" + this.kind + ", id=" + this.id + ", etag=" + this.etag + ", selfLink=" + this.selfLink + ", volumnInfo="
-                + this.volumeInfo + "]";
+        return "Item [kind=" + this.kind + ", id=" + this.id + ", etag=" + this.etag + ", selfLink=" + this.selfLink + ", volumeInfo="
+                + this.volumeInfo + ", saleInfo=" + this.saleInfo + "]";
     }
 }

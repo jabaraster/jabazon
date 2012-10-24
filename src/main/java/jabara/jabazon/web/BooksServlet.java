@@ -23,6 +23,12 @@ public class BooksServlet extends HttpServlet {
      */
     @Override
     protected void doGet(final HttpServletRequest pReq, final HttpServletResponse pResp) throws ServletException, IOException {
+        pReq.setAttribute("q", getParameter(pReq, "q")); //$NON-NLS-1$ //$NON-NLS-2$
         pReq.getRequestDispatcher(WebUtil.getJspPath("/bookSearch.jsp")).forward(pReq, pResp); //$NON-NLS-1$
+    }
+
+    private static String getParameter(final HttpServletRequest pRequest, final String pParameterName) {
+        final String value = pRequest.getParameter(pParameterName);
+        return value == null ? "" : value; //$NON-NLS-1$
     }
 }

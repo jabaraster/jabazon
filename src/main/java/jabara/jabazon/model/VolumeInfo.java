@@ -4,6 +4,7 @@
 package jabara.jabazon.model;
 
 import java.io.Serializable;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -11,17 +12,25 @@ import java.util.List;
  * @author jabaraster
  */
 public class VolumeInfo implements Serializable {
-    private static final long serialVersionUID = -7881677513251608336L;
+    private static final long serialVersionUID    = -7881677513251608336L;
 
     private String            title;
     private String            publisher;
     private String            description;
     private Date              publishedDate;
     private int               pageCount;
-    private List<Industry>    industryIdentifiers;
-    private List<String>      imageLinks;
+    private List<Industry>    industryIdentifiers = Collections.emptyList();
+    private ImageLinks        imageLinks;
     private String            previewLink;
     private String            infoLink;
+    private AccessInfo        accessInfo;
+
+    /**
+     * @return the accessInfo
+     */
+    public AccessInfo getAccessInfo() {
+        return this.accessInfo;
+    }
 
     /**
      * @return the description
@@ -33,7 +42,7 @@ public class VolumeInfo implements Serializable {
     /**
      * @return the imageLinks
      */
-    public List<String> getImageLinks() {
+    public ImageLinks getImageLinks() {
         return this.imageLinks;
     }
 
@@ -49,6 +58,18 @@ public class VolumeInfo implements Serializable {
      */
     public String getInfoLink() {
         return this.infoLink;
+    }
+
+    /**
+     * @return -
+     */
+    public String getIsbn13() {
+        for (final Industry industry : this.industryIdentifiers) {
+            if ("ISBN_13".equals(industry.getType())) { //$NON-NLS-1$
+                return industry.getIdentifier();
+            }
+        }
+        return null;
     }
 
     /**
@@ -87,6 +108,13 @@ public class VolumeInfo implements Serializable {
     }
 
     /**
+     * @param pAccessInfo the accessInfo to set
+     */
+    public void setAccessInfo(final AccessInfo pAccessInfo) {
+        this.accessInfo = pAccessInfo;
+    }
+
+    /**
      * @param pDescription the description to set
      */
     public void setDescription(final String pDescription) {
@@ -96,7 +124,7 @@ public class VolumeInfo implements Serializable {
     /**
      * @param pImageLinks the imageLinks to set
      */
-    public void setImageLinks(final List<String> pImageLinks) {
+    public void setImageLinks(final ImageLinks pImageLinks) {
         this.imageLinks = pImageLinks;
     }
 
@@ -156,7 +184,8 @@ public class VolumeInfo implements Serializable {
     @Override
     public String toString() {
         return "VolumeInfo [title=" + this.title + ", publisher=" + this.publisher + ", description=" + this.description + ", publishedDate="
-                + this.publishedDate + ", pageCount=" + this.pageCount + ", industoryIdentifiers=" + this.industryIdentifiers + ", imageLinks="
-                + this.imageLinks + ", previewLink=" + this.previewLink + ", infoLink=" + this.infoLink + "]";
+                + this.publishedDate + ", pageCount=" + this.pageCount + ", industryIdentifiers=" + this.industryIdentifiers + ", imageLinks="
+                + this.imageLinks + ", previewLink=" + this.previewLink + ", infoLink=" + this.infoLink + ", accessInfo=" + this.accessInfo + "]";
     }
+
 }
