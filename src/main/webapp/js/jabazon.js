@@ -44,7 +44,7 @@
     
     var books = $('div.book');
     books.click(function() {
-      alert($(this).attr('id'));
+      href.location = '${pageContext.request.contextPath}/';
     });
   }
 
