@@ -24,8 +24,6 @@
     for (var i = 0; i < response.items.length; i++) {
       var item = response.items[i];
       var volume = item.volumeInfo;
-      
-      console.log(volume);
 
       tokens.push('<div class="book" id="book_' + i + '">');
       tokens.push('<fieldset class="book">');
@@ -44,8 +42,20 @@
     
     var books = $('div.book');
     books.click(function() {
-      href.location = '${pageContext.request.contextPath}/';
+      var selectedIndex = $(this).attr('id').split('_')[1] - 0
+      var item = volumes.items[selectedIndex];
+      doOrder(item);
     });
+  }
+
+  function doOrder(pItem) {
+    var dialog = $('#dialog');
+    dialog.html(pItem.kind);
+    dialog.dialog({
+      modal: true,
+      title: 'じゃばらへ発注！'
+    });
+    // TODO
   }
 
   function nvl(pObject, pPropertyName) {

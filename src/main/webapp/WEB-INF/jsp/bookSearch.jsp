@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="UTF-8" />
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/jabazon.css" media="screen"></link>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/ui-lightness/jquery-ui-1.9.0.custom.min.css" media="screen"></link>
     <title>書籍検索 - Jabazon</title>
   </head>
   <body>
@@ -16,7 +17,9 @@
     <div id="content"></div>
     <footer>Powered by <a href="http://books.google.co.jp">Google books</a></footer>
 
-    <script src="${pageContext.request.contextPath}/js/jquery-1.7.2.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.8.2.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-ui-1.9.0.custom.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.json-2.3.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jabazon.js"></script>
     <script>
       $(function() {
@@ -24,5 +27,6 @@
       });
     </script>
     <div id="scripts"></div>
+    <div id="dialog"></div>
   </body>
 </html>
