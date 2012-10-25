@@ -3,6 +3,7 @@
  */
 package jabara.jabazon.service;
 
+import jabara.jabazon.entity.Order;
 import jabara.jabazon.service.impl.OrderServiceImpl;
 
 import com.google.inject.ImplementedBy;
@@ -13,5 +14,8 @@ import com.google.inject.ImplementedBy;
 @ImplementedBy(OrderServiceImpl.class)
 public interface IOrderService {
 
-    void hoge();
+    /**
+     * @return -
+     */
+    Order order();
 }

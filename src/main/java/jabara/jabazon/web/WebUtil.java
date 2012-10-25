@@ -13,8 +13,8 @@ public final class WebUtil {
     }
 
     /**
-     * @param pRelativePathFromBase
-     * @return
+     * @param pRelativePathFromBase -
+     * @return -
      */
     public static String getJspPath(final String pRelativePathFromBase) {
         return "/WEB-INF/jsp/" + pRelativePathFromBase; //$NON-NLS-1$
